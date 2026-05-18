@@ -8,13 +8,10 @@
   <style>
     :root {
       --black: #050505;
-      --soft-black: #0d0d0d;
-      --charcoal: #171717;
       --white: #ffffff;
-      --off-white: #f5f5f5;
       --gray: #a3a3a3;
-      --muted: #737373;
-      --border: #2a2a2a;
+      --muted: #6f6f6f;
+      --border: #242424;
       --blue: #8fd3ff;
     }
 
@@ -22,10 +19,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -38,7 +31,7 @@
     a {
       color: inherit;
       text-decoration: none;
-      transition: color 0.2s ease, opacity 0.2s ease;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     a:hover {
@@ -46,18 +39,14 @@
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.92);
-      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      background: var(--black);
     }
 
     nav {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 24px 28px;
+      padding: 26px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -72,66 +61,62 @@
 
     .nav-links {
       display: flex;
-      gap: 36px;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      gap: 34px;
       color: var(--gray);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .hero {
-      min-height: 88vh;
+    main {
+      min-height: calc(100vh - 145px);
       display: flex;
       align-items: center;
       border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top right, rgba(143, 211, 255, 0.12), transparent 32%),
-        linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
     }
 
-    .hero-inner {
-      max-width: 1200px;
+    .hero {
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 96px 28px;
+      padding: 110px 28px;
       width: 100%;
     }
 
     .eyebrow {
       color: var(--gray);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     h1 {
-      max-width: 980px;
-      font-size: clamp(3.1rem, 8vw, 7.6rem);
+      max-width: 960px;
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
       line-height: 0.9;
       letter-spacing: -0.07em;
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 34px;
     }
 
-    .hero-copy {
-      max-width: 670px;
+    p {
+      max-width: 620px;
       color: var(--gray);
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       margin-bottom: 38px;
     }
 
-    .hero-actions {
+    .buttons {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
 
     .button {
-      display: inline-block;
       border: 1px solid var(--white);
       padding: 13px 19px;
-      font-size: 0.82rem;
-      letter-spacing: 0.13em;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -141,159 +126,22 @@
       border-color: var(--blue);
     }
 
-    .button.secondary {
-      border-color: var(--border);
-      color: var(--gray);
-    }
-
-    section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 92px 28px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-header {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 40px;
-      margin-bottom: 54px;
-    }
-
-    .section-label {
-      color: var(--gray);
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 5vw, 4.2rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
-      font-weight: 700;
-    }
-
-    .section-copy {
-      color: var(--gray);
-      max-width: 710px;
-      margin-top: 22px;
-      font-size: 1rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--soft-black);
-      border: 1px solid var(--border);
-      padding: 28px;
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-number {
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      margin-bottom: 34px;
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .research-item {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 0.65fr 1.35fr;
-      gap: 28px;
-    }
-
-    .research-item:last-child {
-      border-bottom: none;
-    }
-
-    .research-meta {
-      color: var(--muted);
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .research-item h3 {
-      font-size: 1.5rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-    }
-
-    .research-item p {
-      color: var(--gray);
-      max-width: 680px;
-    }
-
-    .statement {
-      background: var(--off-white);
-      color: var(--black);
-      max-width: none;
-      padding: 96px 28px;
-    }
-
-    .statement-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .statement h2 {
-      max-width: 1000px;
-    }
-
-    .statement p {
-      margin-top: 28px;
-      max-width: 760px;
-      color: #333;
-      font-size: 1.05rem;
-    }
-
     footer {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 30px 28px;
+      padding: 28px;
       color: var(--muted);
       font-size: 0.82rem;
       display: flex;
       justify-content: space-between;
-      gap: 22px;
-      border-top: 1px solid var(--border);
+      gap: 18px;
     }
 
-    footer a:hover {
-      color: var(--blue);
-    }
-
-    @media (max-width: 850px) {
-      nav {
-        align-items: flex-start;
+    @media (max-width: 760px) {
+      nav,
+      footer {
         flex-direction: column;
+        align-items: flex-start;
         gap: 18px;
       }
 
@@ -302,19 +150,8 @@
         flex-wrap: wrap;
       }
 
-      .section-header,
-      .grid,
-      .split,
-      .research-item {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      footer {
-        flex-direction: column;
+      main {
+        align-items: flex-start;
       }
     }
   </style>
@@ -323,132 +160,35 @@
 <body>
   <header>
     <nav>
-      <a class="logo" href="#">Rand Strategy</a>
+      <a class="logo" href="index.html">Rand Strategy</a>
 
       <div class="nav-links">
-        <a href="#trading-strategies">Trading Strategies</a>
-        <a href="#research">Research</a>
+        <a href="trading-strategies.html">Trading Strategies</a>
+        <a href="research.html">Research</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">Financial Software • Research • Signal Generation</div>
+      <div class="eyebrow">Financial Software • Research • Signal Generation</div>
 
-        <h1>Signals with research behind them.</h1>
+      <h1>Signals with research behind them.</h1>
 
-        <p class="hero-copy">
-          Rand Strategy develops institutional-grade financial software that pairs quantitative signal generation with deep research tools designed for transparency, testing, and disciplined decision-making.
-        </p>
+      <p>
+        Rand Strategy develops financial software and research tools for institutional use, combining quantitative signal generation with an analytical layer designed to make model output more transparent.
+      </p>
 
-        <div class="hero-actions">
-          <a class="button" href="#trading-strategies">Trading Strategies</a>
-          <a class="button secondary" href="#research">Research</a>
-        </div>
+      <div class="buttons">
+        <a class="button" href="trading-strategies.html">Trading Strategies</a>
+        <a class="button" href="research.html">Research</a>
       </div>
     </section>
-
-    <section id="trading-strategies">
-      <div class="section-header">
-        <div class="section-label">Trading Strategies</div>
-        <div>
-          <h2>Algorithmic output should not be a black box.</h2>
-          <p class="section-copy">
-            The platform is being built to generate signals while surfacing the reasoning, market context, and risk considerations behind each recommendation.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <div>
-            <div class="card-number">01</div>
-            <h3>Signal Generation</h3>
-            <p>
-              Quantitative tools designed to identify market opportunities across defined strategies, time horizons, and risk parameters.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div>
-            <div class="card-number">02</div>
-            <h3>Research Layer</h3>
-            <p>
-              Each signal is paired with supporting analysis so portfolio managers and risk teams can understand the logic behind the output.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div>
-            <div class="card-number">03</div>
-            <h3>Institutional Licensing</h3>
-            <p>
-              Rand Strategy is designed around a non-exclusive licensing model for banks and institutional partners.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="research">
-      <div class="section-header">
-        <div class="section-label">Research</div>
-        <div>
-          <h2>Institutional-style equity research across core verticals.</h2>
-          <p class="section-copy">
-            Research supports the firm’s internal models and may develop into standalone products as the platform matures.
-          </p>
-        </div>
-      </div>
-
-      <div class="research-item">
-        <div class="research-meta">Energy</div>
-        <div>
-          <h3>Commodity exposure, cash flow durability, and capital discipline.</h3>
-          <p>
-            Energy research focuses on market structure, asset quality, commodity sensitivity, and the resilience of free cash flow through cycles.
-          </p>
-        </div>
-      </div>
-
-      <div class="research-item">
-        <div class="research-meta">Technology</div>
-        <div>
-          <h3>Software, infrastructure, and AI-driven business models.</h3>
-          <p>
-            Technology coverage emphasizes competitive positioning, monetization pathways, operating leverage, and long-term reinvestment capacity.
-          </p>
-        </div>
-      </div>
-
-      <div class="research-item">
-        <div class="research-meta">Industrials</div>
-        <div>
-          <h3>Operational quality, demand cycles, and return profiles.</h3>
-          <p>
-            Industrials research evaluates end-market exposure, margin structure, backlog visibility, and execution quality.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="statement">
-      <div class="statement-inner">
-        <h2>Built for the gap between financial AI and institutional trust.</h2>
-        <p>
-          Larger firms often move slowly when reputational risk is high. Rand Strategy is focused on moving quickly, testing rigorously, and building credibility through transparent tools and disciplined research.
-        </p>
-      </div>
-    </div>
   </main>
 
   <footer>
     <div>© 2026 Rand Strategy LLC</div>
-    <div>Research and software tools for informational and institutional use.</div>
+    <div>Research and software tools for informational use.</div>
   </footer>
 </body>
 </html>
