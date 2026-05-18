@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rand Strategy | Equity Research</title>
+  <style>
+    :root {
+      --navy: #07182f;
+      --blue: #123b63;
+      --gold: #b9975b;
+      --light: #f6f7f9;
+      --text: #1d2430;
+      --muted: #667085;
+      --border: #d8dde6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 28px 8%;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(7, 24, 47, 0.9), rgba(7, 24, 47, 0.88)),
+        url("https://images.unsplash.com/photo-1642790551116-18e150f248e6?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 110px 8% 120px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(2.6rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      color: #d9e1ea;
+      margin-bottom: 36px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 22px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 2px;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      max-width: 750px;
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      margin-bottom: 42px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      padding: 28px;
+      background: white;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .research {
+      background: var(--light);
+    }
+
+    .report {
+      display: grid;
+      grid-template-columns: 120px 1fr 160px;
+      gap: 24px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+    }
+
+    .ticker {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .report h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .report p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .rating {
+      text-align: right;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about p {
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .stat {
+      background: var(--navy);
+      color: white;
+      padding: 26px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      font-family: Arial, sans-serif;
+      color: #d9e1ea;
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      font-family: Arial, sans-serif;
+      color: #d9e1ea;
+    }
+
+    footer {
+      padding: 24px 8%;
+      background: #041020;
+      color: #b8c0cc;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 850px) {
+      nav, footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .grid, .about {
+        grid-template-columns: 1fr;
+      }
+
+      .report {
+        grid-template-columns: 1fr;
+      }
+
+      .rating {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Rand Strategy</div>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Independent Equity Research</div>
+      <h1>Institutional-style analysis for public markets.</h1>
+      <p>
+        Rand Strategy publishes disciplined equity research, market commentary, and company-level analysis built around valuation, competitive positioning, and long-term capital allocation.
+      </p>
+      <a class="button" href="#research">View Research</a>
+    </section>
+
+    <section id="process">
+      <h2 class="section-title">Research Framework</h2>
+      <p class="section-subtitle">
+        Our process combines business-quality assessment, financial statement analysis, valuation discipline, and clearly stated investment conclusions.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Business Quality</h3>
+          <p>
+            Analysis of industry structure, competitive advantages, pricing power, management quality, and durability of returns on invested capital.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Financial Analysis</h3>
+          <p>
+            Revenue growth, margin structure, free cash flow conversion, balance sheet strength, and reinvestment capacity are evaluated across cycles.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Valuation</h3>
+          <p>
+            Intrinsic value is assessed through comparable companies, precedent transactions, discounted cash flow analysis, and scenario-weighted outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="research">
+      <h2 class="section-title">Recent Research</h2>
+      <p class="section-subtitle">
+        Selected research notes and initiation-style reports. Replace the sample names below with your actual published reports.
+      </p>
+
+      <div class="report">
+        <div class="ticker">AAPL</div>
+        <div>
+          <h3>Apple Inc. — Ecosystem Durability and Services-Led Margin Expansion</h3>
+          <p>Initiation coverage analyzing hardware replacement cycles, services mix, capital returns, and long-term earnings power.</p>
+        </div>
+        <div class="rating">Sample Report</div>
+      </div>
+
+      <div class="report">
+        <div class="ticker">XOM</div>
+        <div>
+          <h3>Exxon Mobil — Integrated Energy Scale and Cash Flow Resilience</h3>
+          <p>Review of upstream exposure, refining margins, capital discipline, commodity sensitivity, and shareholder returns.</p>
+        </div>
+        <div class="rating">Sample Report</div>
+      </div>
+
+      <div class="report">
+        <div class="ticker">MSFT</div>
+        <div>
+          <h3>Microsoft — Cloud, AI Infrastructure, and Enterprise Distribution</h3>
+          <p>Analysis of Azure growth, operating leverage, AI monetization pathways, and valuation relative to mega-cap software peers.</p>
+        </div>
+        <div class="rating">Sample Report</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about">
+        <div>
+          <h2 class="section-title">About Rand Strategy</h2>
+          <p>
+            Rand Strategy is an independent research platform focused on producing clear, rigorous, and professional public equity analysis.
+          </p>
+          <p>
+            The goal is to synthesize company filings, industry data, valuation work, and original judgment into research that reads with the discipline of institutional equity coverage while remaining independent and accessible.
+          </p>
+          <p>
+            Research is for educational and informational purposes only and should not be considered investment advice.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>3</strong>
+            <span>Core research pillars</span>
+          </div>
+          <div class="stat">
+            <strong>DCF</strong>
+            <span>Valuation-driven process</span>
+          </div>
+          <div class="stat">
+            <strong>10-K</strong>
+            <span>Filing-based analysis</span>
+          </div>
+          <div class="stat">
+            <strong>Long-term</strong>
+            <span>Capital allocation lens</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        For research inquiries, collaboration, or report access, please reach out directly.
+      </p>
+      <a class="button" href="mailto:your-email@example.com">Contact Rand Strategy</a>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Rand Strategy. All rights reserved.</div>
+    <div>Independent research. Not investment advice.</div>
+  </footer>
+</body>
+</html>
